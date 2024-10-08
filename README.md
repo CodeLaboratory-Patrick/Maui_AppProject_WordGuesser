@@ -1,5 +1,34 @@
 # Word Guessing Application
 
+## Overview of the UI Flow
+The UI flow of this word guessing game in .NET MAUI follows a typical sequence that allows the user to interact with the game by guessing letters of a secret word. 
+
+### Screen 1: Basic UI Layout - Game Start
+
+<img width="422" alt="Basic UI Layout" src="https://github.com/user-attachments/assets/2afc15c6-4403-4dd7-8365-0b27846c9979">
+
+- **Hanging Structure**: At the center of the screen, there is a depiction of a hanging structure, representing the progress in the game, similar to a traditional hangman game. Initially, this structure is mostly empty.
+- **Dashed Lines for Word Representation**: Below the hanging structure, dashed lines represent the letters of the word that the player needs to guess. Each dash stands for one letter in the hidden word.
+- **Reset Button**: The **Reset** button is located just below the dashed lines, allowing the user to reset the game at any point and start over with a new word.
+- **Keyboard Section**: At the bottom of the screen, there is a virtual keyboard consisting of buttons with each letter of the alphabet. Each letter is displayed in lowercase, and the keyboard allows the player to select a letter to guess. Initially, all letter buttons are active.
+
+### Screen 2: Gameplay - You Win
+
+<img width="422" alt="You Win" src="https://github.com/user-attachments/assets/49e91c98-b1f5-4aba-9843-a7fc84c28300">
+
+**Errors Display**: At the top right corner of the screen, an **Errors** label displays the current number of incorrect guesses made by the player, for example, "Errors: 1 of 7". This helps the player keep track of their mistakes.
+- **Word Display**: The dashed lines now reveal the letters that have been correctly guessed, for example, **"C S S"**, where each correctly guessed letter is displayed in uppercase. Once the entire word is correctly guessed, a message below the word reads **"You Win!"** to indicate the player has successfully completed the game.
+
+### Screen 3: Gameplay - You Lost
+
+![Screenshot 2024-10-08 at 8 49 53 PM](https://github.com/user-attachments/assets/92d1b18e-2e59-4f3b-a6f0-1b77c98b1e59)
+
+**Errors Display**: The **Errors** label shows the final count of incorrect guesses, reaching **7 of 7** to indicate the player has used all their allowed attempts.
+- **Hanging Structure**: The hangman structure is fully drawn, representing that the player has lost the game after reaching the maximum number of incorrect guesses.
+- **Word Display**: The partially guessed word is displayed, for example, **"m y s _ l"**. The correctly guessed letters are shown, while the missing letters are still represented by underscores.
+- **Loss Message**: A message below the word reads **"You Lost!"** to indicate that the game is over and the player did not guess the word correctly.
+- **Keyboard Section**: Similar to the "You Win" screen, the letters that have been guessed are grayed out, and all buttons are inactive at the end of the game.
+
 ### MainPage.xaml
 The `MainPage.xaml` file defines the UI layout for a page called `MainPage`. It uses XAML (Extensible Application Markup Language) to describe the structure and visual elements. Here are some key points regarding its content:
 
