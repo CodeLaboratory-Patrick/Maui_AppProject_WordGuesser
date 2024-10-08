@@ -16,6 +16,16 @@ namespace Maui_Project_WordGuesser
             }
         }
 
+        public List<char> Letters
+        {
+            get => letters; 
+            set
+            {
+                letters = value;
+                OnPropertyChanged();
+            }
+        }
+
         #endregion
 
 
@@ -40,7 +50,7 @@ namespace Maui_Project_WordGuesser
         "ruby",
         "delphi",
         "haskell",
-        "c"
+        "c",
         "maui",
         "csharp",
         "mongodb",
@@ -56,11 +66,13 @@ namespace Maui_Project_WordGuesser
         string answer = "";
         private string spotlight;
         List<char> guessed = new List<char>();
+        private List<char> letters = new List<char>();
         #endregion
 
         public MainPage()
         {
             InitializeComponent();
+            Letters.AddRange("abcdefghijklmnopqrstuvwxyz");
             BindingContext = this;
             PickWord();
             CalculateWords(answer, guessed);
