@@ -153,6 +153,30 @@ namespace Maui_Project_WordGuesser
            if(mistake == maxWrong)
             {
                 Message = "You Lost!";
+                DisableLetters();
+            }
+        }
+
+        private void DisableLetters()
+        {
+            foreach(var children in LettersContainer.Children)
+            {
+                var btn = children as Button;
+                if(btn != null)
+                {
+                    btn.IsEnabled = false;
+                }
+            }
+        }
+        private void EnableLetters()
+        {
+            foreach (var children in LettersContainer.Children)
+            {
+                var btn = children as Button;
+                if (btn != null)
+                {
+                    btn.IsEnabled = true;
+                }
             }
         }
 
@@ -161,6 +185,7 @@ namespace Maui_Project_WordGuesser
             if (Spotlight.Replace(" ", "") == answer)
             {
                 Message = "You Win!";
+                DisableLetters();
             }
         }
 
@@ -185,6 +210,16 @@ namespace Maui_Project_WordGuesser
             }
         }
 
-       
+        private void Reset_Clicked(object sender, EventArgs e)
+        {
+            mistake = 0;
+            guessed = new List<char>();
+            CurrentImage = currentImage;
+            PickWord();
+            CalculateWords(answer, guessed);
+            Message = "";
+            UpdateStatus();
+            EnableLetters();
+        }
     }
 }
