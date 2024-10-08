@@ -4,7 +4,7 @@
              x:Class="Maui_Project_WordGuesser.MainPage">
 
     <Grid RowDefinitions=".6*, .4*">
-        <VerticalStackLayout>
+        <VerticalStackLayout Spacing="10">
             <Label
                 FontAttributes="Bold"
                 HorizontalOptions="Center"
@@ -19,7 +19,7 @@
 
             <Label FontSize="Large"
                    HorizontalTextAlignment="Center"
-                   Text="You Lost!" />
+                   Text="{Binding Message}" />
 
             <Button HorizontalOptions="Center"
                     Text="Reset"
@@ -34,7 +34,8 @@
                 <DataTemplate>
                     <Button HeightRequest="50"
                             WidthRequest="50"
-                            Text="{Binding .}" />
+                            Text="{Binding .}"
+                            Clicked="Button_Clicked"/>
                 </DataTemplate>
             </BindableLayout.ItemTemplate>
         </FlexLayout>

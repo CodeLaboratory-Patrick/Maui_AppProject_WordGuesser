@@ -26,6 +26,16 @@ namespace Maui_Project_WordGuesser
             }
         }
 
+        public string Message
+        {
+            get => message; 
+            set
+            {
+                message = value;
+                OnPropertyChanged();
+            }
+        }
+
         #endregion
 
 
@@ -67,6 +77,7 @@ namespace Maui_Project_WordGuesser
         private string spotlight;
         List<char> guessed = new List<char>();
         private List<char> letters = new List<char>();
+        private string message;
         #endregion
 
         public MainPage()
@@ -94,5 +105,38 @@ namespace Maui_Project_WordGuesser
         }
 
         #endregion
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            if (btn != null)
+            {
+                var letter = btn.Text;
+                btn.IsEnabled = false;
+                HandleGuess(letter[0]);
+
+            }
+        }
+
+        private void HandleGuess(char letter)
+        {
+           if(guessed.IndexOf(letter) == -1)
+            {
+                guessed.Add(letter);
+            }
+           if(answer.IndexOf(letter) >= 0)
+            {
+                CalculateWords(answer, guessed);
+                CheckIfGameWon();
+            }
+        }
+
+        private void CheckIfGameWon()
+        {
+            if(Spotlight.Replace(" ", "") == answer)
+            {
+                Message = "You win!";
+            }
+        }
     }
 }
