@@ -46,6 +46,16 @@ namespace Maui_Project_WordGuesser
             }
         }
 
+        public string CurrentImage
+        {
+            get => currentImage; 
+            set
+            {
+                currentImage = value;
+                OnPropertyChanged();
+            }
+        }
+
         #endregion
 
 
@@ -91,6 +101,7 @@ namespace Maui_Project_WordGuesser
         int mistake = 0;
         int maxWrong = 7;
         private string gameStatus;
+        private string currentImage = "img0.jpg";
         #endregion
 
         public MainPage()
@@ -133,6 +144,7 @@ namespace Maui_Project_WordGuesser
                 mistake++;
                 UpdateStatus();
                 CheckIfGameLost();
+                CurrentImage = $"img{mistake}.jpg";
             }
         }
 

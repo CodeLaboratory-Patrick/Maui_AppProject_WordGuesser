@@ -9,7 +9,8 @@
                 FontAttributes="Bold"
                 HorizontalOptions="Center"
                 Text="{Binding GameStatus}" />
-            <Image Source="img0.jpg"
+
+            <Image Source="{Binding CurrentImage}"
                    HeightRequest="200"/>
             
             <Label FontSize="40"
