@@ -36,6 +36,16 @@ namespace Maui_Project_WordGuesser
             }
         }
 
+        public string GameStatus
+        {
+            get => gameStatus; 
+            set
+            {
+                gameStatus = value;
+                OnPropertyChanged();
+            }
+        }
+
         #endregion
 
 
@@ -78,6 +88,9 @@ namespace Maui_Project_WordGuesser
         List<char> guessed = new List<char>();
         private List<char> letters = new List<char>();
         private string message;
+        int mistake = 0;
+        int maxWrong = 7;
+        private string gameStatus;
         #endregion
 
         public MainPage()
@@ -104,7 +117,49 @@ namespace Maui_Project_WordGuesser
             Spotlight = string.Join(' ', temp);
         }
 
+        private void HandleGuess(char letter)
+        {
+            if (guessed.IndexOf(letter) == -1)
+            {
+                guessed.Add(letter);
+            }
+            if (answer.IndexOf(letter) >= 0)
+            {
+                CalculateWords(answer, guessed);
+                CheckIfGameWon();
+            }
+            else if (answer.IndexOf(letter) == -1)
+            {
+                mistake++;
+                UpdateStatus();
+                CheckIfGameLost();
+            }
+        }
+
+        private void CheckIfGameLost()
+        {
+           if(mistake == maxWrong)
+            {
+                Message = "You Lost!";
+            }
+        }
+
+        private void CheckIfGameWon()
+        {
+            if (Spotlight.Replace(" ", "") == answer)
+            {
+                Message = "You Win!";
+            }
+        }
+
+        private void UpdateStatus()
+        {
+            GameStatus = $"Errors: {mistake} of {maxWrong}";
+        }
+
+
         #endregion
+
 
         private void Button_Clicked(object sender, EventArgs e)
         {
@@ -118,25 +173,6 @@ namespace Maui_Project_WordGuesser
             }
         }
 
-        private void HandleGuess(char letter)
-        {
-           if(guessed.IndexOf(letter) == -1)
-            {
-                guessed.Add(letter);
-            }
-           if(answer.IndexOf(letter) >= 0)
-            {
-                CalculateWords(answer, guessed);
-                CheckIfGameWon();
-            }
-        }
-
-        private void CheckIfGameWon()
-        {
-            if(Spotlight.Replace(" ", "") == answer)
-            {
-                Message = "You win!";
-            }
-        }
+       
     }
 }
