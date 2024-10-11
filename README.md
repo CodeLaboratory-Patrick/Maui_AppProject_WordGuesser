@@ -69,7 +69,7 @@ The `MainPage.xaml.cs` file is the code-behind file for the XAML UI. It contains
 For a better understanding of the technologies used in these files, the following resources are recommended:
 
 - **.NET MAUI Documentation**: [Microsoft .NET MAUI Docs](https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui) – Official documentation for understanding the concepts, controls, and architecture used in MAUI projects.
-- **XAML Documentation**: [Microsoft XAML Docs](https://learn.microsoft.com/en-us/dotnet/desktop-wpf/fundamentals/xaml-overview) – This provides a good overview of XAML, its elements, syntax, and data binding.
+- **XAML Documentation**: [Microsoft XAML Docs](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/xaml/?view=netdesktop-8.0) – This provides a good overview of XAML, its elements, syntax, and data binding.
 - **MVVM Pattern in MAUI**: [MVVM in .NET MAUI](https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/data-binding) – A guide to implementing MVVM in .NET MAUI applications, explaining data binding, command usage, and property change notifications.
 
 # FlexLayout in .NET MAUI
@@ -261,7 +261,7 @@ For example, consider a situation where you want to create a product listing wit
 ## Reference Sites
 - [.NET MAUI Documentation](https://learn.microsoft.com/en-us/dotnet/maui/)
 - [Microsoft Learn - BindableLayout](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/layouts/bindablelayout)
-- [Xamarin BindableLayout (Concept Similarity)](https://learn.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/layouts/bindablelayout)
+- [Xamarin BindableLayout (Microsoft)]([https://learn.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/layouts/bindablelayout](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/layouts/bindablelayout?view=net-maui-8.0))
 
 
 
@@ -408,4 +408,3 @@ For example, consider a scenario where you have a list of product names that sho
 ## Reference Sites
 - [.NET MAUI Documentation](https://learn.microsoft.com/en-us/dotnet/maui/)
 - [Microsoft Learn - Data Binding in MAUI](https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/data-binding)
-- [Binding Markup Extension in XAML](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/data/how-to-bind-to-the-current-item-in-a-collectionview)
